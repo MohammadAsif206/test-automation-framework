@@ -1,0 +1,20 @@
+{
+  "environments": {
+    "dev": {
+      "baseUrl": "https://dev.example.com",
+      "apiUrl": "https://api.dev.example.com"
+    },
+    "staging": {
+      "baseUrl": "https://staging.example.com",
+      "apiUrl": "https://api.staging.example.com"
+    },
+    "prod": {
+      "baseUrl": "https://example.com",
+      "apiUrl": "https://api.example.com"
+    }
+  },
+  "defaultTimeout": 30000,
+  "browser": "chromium",
+  "headless": true,
+  "retries": 2
+}

@@ -1,0 +1,40 @@
+# Java
+java-selenium/target/
+java-selenium/.mvn/
+*.class
+
+# Node
+typescript-playwright/node_modules/
+typescript-playwright/playwright-report/
+typescript-playwright/test-results/
+typescript-playwright/allure-results/
+typescript-playwright/allure-report/
+typescript-playwright/junit-results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+python-selenium-playwright/allure-results/
+python-selenium-playwright/allure-report/
+python-selenium-playwright/.pytest_cache/
+python-selenium-playwright/test-results/
+
+# Environment files
+.env
+**/.env
+
+# Reports (generated)
+reports/
+allure-results/
+allure-history/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml

@@ -1,0 +1,25 @@
+# Core
+selenium==4.18.0
+playwright==1.42.0
+
+# Driver management (Selenium)
+webdriver-manager==4.0.1
+
+# Test runner
+pytest==8.1.1
+pytest-xdist==3.5.0        # parallel execution
+pytest-rerunfailures==14.0 # auto-retry flaky tests
+pytest-html==4.1.1         # HTML report
+pytest-playwright==0.4.4   # Playwright pytest plugin
+
+# Allure reporting
+allure-pytest==2.13.3
+
+# Utilities
+python-dotenv==1.0.1
+faker==24.3.0
+Pillow==10.2.0             # screenshot support
+requests==2.31.0           # API calls in tests
+
+# Logging
+colorlog==6.8.2

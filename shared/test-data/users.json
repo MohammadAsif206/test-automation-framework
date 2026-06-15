@@ -1,0 +1,19 @@
+{
+  "users": {
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "email": "standard@example.com"
+    },
+    "admin": {
+      "username": "admin_user",
+      "password": "admin_secret",
+      "email": "admin@example.com"
+    },
+    "locked_out": {
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "email": "locked@example.com"
+    }
+  }
+}
