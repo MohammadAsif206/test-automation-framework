@@ -7,22 +7,24 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class BasePage {
 
-    protected final WebDriver driver;
-    protected final WebDriverWait wait;
-    private static final Logger log = LoggerFactory.getLogger(BasePage.class);
-    private static final int DEFAULT_TIMEOUT = 15;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    private static Logger log = LoggerFactory.getLogger(BasePage.class);
+    private static int DEFAULT_TIMEOUT = 15;
 
     protected BasePage() {
         this.driver = DriverFactory.getDriver();
-        this.wait   = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         PageFactory.initElements(driver, this);
     }
 
@@ -34,6 +36,10 @@ public abstract class BasePage {
 
     @Step("Click element")
     protected void click(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});",
+                element);
+
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
@@ -69,5 +75,23 @@ public abstract class BasePage {
     public void takeScreenshot(String name) {
         byte[] screenshot = ScreenshotUtil.capture(driver);
         Allure.getLifecycle().addAttachment(name, "image/png", "png", screenshot);
+    }
+
+    public void selectFromNormalDropdown(WebElement ele, String value) {
+        Select drp = new Select(ele);
+        List<WebElement> allOptions = drp.getOptions();
+        for (WebElement option : allOptions) {
+            if (option.getText().equals(value)) {
+                click(option);
+                break;
+            }
+        }
+    }
+    public boolean isEmptyOrNull(String ...val){
+        if(val.length==0 || val[0].isEmpty() || val[0]==null){
+            return true;
+        }else
+            return false;
+
     }
 }

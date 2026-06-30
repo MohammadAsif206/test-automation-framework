@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="UI Regression Suite" parallel="methods" thread-count="2" verbose="1">
+<suite name="UI Regression Suite" parallel="methods" thread-count="1" verbose="1">
 
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
@@ -15,6 +15,16 @@
     <test name="Inventory Tests">
         <classes>
             <class name="com.framework.tests.InventoryTest"/>
+        </classes>
+    </test>
+    <test name="Registration Tests">
+        <classes>
+            <class name="com.framework.tests.RegisterTest"/>
+        </classes>
+    </test>
+    <test name="Handle Alert Tests">
+        <classes>
+            <class name = "com.framework.tests.SpecialFeatureTest"/>
         </classes>
     </test>
 
